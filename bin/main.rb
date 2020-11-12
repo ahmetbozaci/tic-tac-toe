@@ -14,65 +14,68 @@ class Interface
      |   #{@@arr[6]}   |   #{@@arr[7]}    |   #{@@arr[8]}   |
      =------------------------=
 EOM
-end
+  end
 
   def display
     puts create_table
-    puts ""
+    puts ''
     puts 'Player one is "O" '
-    puts ""
+    puts ''
     puts 'Player two is "X" '
-    puts ""
+    puts ''
   end
 
   def get_number
+    loop do
 
-    puts 'Player one enter a number:'
-    player_one_input = gets.chomp
-    update_table(player_one_input.to_i)
-    change_player
-    puts ""
-    puts 'Player two enter a number:'
-    player_two_input = gets.chomp
-    update_table(player_two_input.to_i)
-    change_player
-  end
+        puts 'Game finished'
+        
 
-  @@active_player = "player_one"
-  def change_player
-    if @@active_player == "player_one"
-      @@active_player = "player_two"
-    else
-      @@active_player = "player_one"
+        puts 'Player one enter a number:'
+        player_one_input = gets.chomp
+        update_table(player_one_input.to_i)
+        change_player
+        puts ''
+        puts 'Player two enter a number:'
+        player_two_input = gets.chomp
+        update_table(player_two_input.to_i)
+        change_player
+
     end
   end
 
-  def update_table(num)
-
-      if @@active_player == "player_one"
-
-        puts "passed number is #{num}"
-        puts "array item #{@@arr[num-1]} will be replaced with O]"
-        puts "active player is #{@@active_player}"
-        @@arr[num-1] = "O"
-        puts @@arr
-      else
-        puts "array item #{@@arr[num-1]} will be replaced with X]"
-        puts "passed number is #{num}"
-        puts "active player is #{@@active_player}"
-        @@arr[num-1] = "X"
-        puts @@arr
-      end
-      puts create_table
+  @@active_player = 'player_one'
+  def change_player
+    @@active_player = if @@active_player == 'player_one'
+                        'player_two'
+                      else
+                        'player_one'
+                      end
   end
 
+  def update_table(num)
+    if @@active_player == 'player_one'
 
+      puts "passed number is #{num}"
+      puts "array item #{@@arr[num - 1]} will be replaced with O]"
+      puts "active player is #{@@active_player}"
+      @@arr[num - 1] = 'O'
+      puts @@arr
+    else
+      puts "array item #{@@arr[num - 1]} will be replaced with X]"
+      puts "passed number is #{num}"
+      puts "active player is #{@@active_player}"
+      @@arr[num - 1] = 'X'
+      puts @@arr
+    end
+    puts create_table
+  end
 
 
 end
 
-  game = Interface.new
 
-  game.display
-  game.change_player
-  game.get_number
+game = Interface.new
+game.display
+game.change_player
+game.get_number
