@@ -26,10 +26,7 @@ EOM
   end
 
   def get_number
-    loop do
-
-        puts 'Game finished'
-        
+        while @@arr.any? { |element| element.is_a?Integer }
 
         puts 'Player one enter a number:'
         player_one_input = gets.chomp
@@ -40,8 +37,8 @@ EOM
         player_two_input = gets.chomp
         update_table(player_two_input.to_i)
         change_player
-
-    end
+        end
+        puts 'Game finished!'
   end
 
   @@active_player = 'player_one'
