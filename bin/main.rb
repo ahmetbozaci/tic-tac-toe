@@ -73,9 +73,9 @@ class Interface
   end
   # get numbers from players
 
-    @active_player = 'player_one'
+  @active_player = 'player_one'
   def number
-      while @count < 10 do
+    while @count < 10
       print "#{@active_player} enter a number: "
       active_player_input = gets.chomp
       check_input(active_player_input.to_i)
@@ -84,7 +84,7 @@ class Interface
   end
 
   def check_input(input)
-    if @arr.include?input
+    if @arr.include? input
       update_table(input)
       change_player
       puts ''
