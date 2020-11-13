@@ -3,6 +3,8 @@
 class Interface
   def initialize
     @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @number_options = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @count = 1
 
     # Give random "x" or "o" to players
     game_arr = %w[X O]
@@ -69,26 +71,32 @@ class Interface
     puts
     puts '---------GAME STARTED---------'
   end
-
   # get numbers from players
+
+    @active_player = 'player_one'
   def number
-    while @arr.any?(Integer)
-      puts
-      print "#{@player1_name} enter a number: "
-      player_one_input = gets.chomp
-      update_table(player_one_input.to_i)
-      change_player
-      puts ''
-      print "#{@player2_name} enter a number: "
-      player_two_input = gets.chomp
-      update_table(player_two_input.to_i)
-      change_player
+      while @count < 10 do
+      print "#{@active_player} enter a number: "
+      active_player_input = gets.chomp
+      check_input(active_player_input.to_i)
     end
     puts 'Game finished!'
   end
 
+  def check_input(input)
+    if @arr.include?input
+      update_table(input)
+      change_player
+      puts ''
+      @number_options.delete(input)
+      @count += 1
+    else
+      puts "Please enter a number from #{@number_options}"
+      number
+    end
+  end
+
   # change player
-  @active_player = 'player_one'
   def change_player
     @active_player = if @active_player == 'player_one'
                        'player_two'
