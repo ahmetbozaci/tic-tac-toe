@@ -39,28 +39,41 @@ class Interface
     puts '              TİC TAC TOE GAME'
     puts create_table
     puts
+    puts "
+                GAME RULES"
+    puts "
+    1. The first player to get 3 of her/his
+    marks in a row (up, down, across, or
+    diagonally) is the winner."
+    puts "
+    2. When all 9 squares are full, the
+    game is over. If no player has 3
+    marks in a row, the game ends in a tie."
+    puts
     puts
   end
 
   # Ask players name and say their symbol
   def players_name
-    print 'Player ONE write your name:  '
+    print 'PLAYER ONE write your name:  '
     @player1_name = gets.chomp
     puts
     print "#{@player1_name} is \"#{@player1}\""
     puts
     puts
-    print 'Player TWO write your name:  '
+    print 'PLAYER TWO write your name:  '
     @player2_name = gets.chomp
     puts
     print "#{@player2_name} is \"#{@player2}\""
     puts
     puts
+    puts '---------GAME STARTED---------'
   end
 
   # get numbers from players
   def number
     while @arr.any?(Integer)
+      puts
       print "#{@player1_name} enter a number: "
       player_one_input = gets.chomp
       update_table(player_one_input.to_i)
@@ -74,6 +87,7 @@ class Interface
     puts 'Game finished!'
   end
 
+  # change player
   @active_player = 'player_one'
   def change_player
     @active_player = if @active_player == 'player_one'
@@ -83,6 +97,7 @@ class Interface
                      end
   end
 
+  # update table after each player play
   def update_table(num)
     @arr[num - 1] = if @active_player == 'player_one'
                       'O'
