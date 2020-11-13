@@ -70,10 +70,11 @@ class Interface
     puts
     puts
     puts '---------GAME STARTED---------'
+    puts
   end
   # get numbers from players
 
-  @active_player = 'player_one'
+  @active_player = @player1_name
   def number
     while @count < 10
       print "#{@active_player} enter a number: "
@@ -98,19 +99,19 @@ class Interface
 
   # change player
   def change_player
-    @active_player = if @active_player == 'player_one'
-                       'player_two'
+    @active_player = if @active_player == @player1_name
+                       @player2_name
                      else
-                       'player_one'
+                       @player1_name
                      end
   end
 
   # update table after each player play
   def update_table(num)
-    @arr[num - 1] = if @active_player == 'player_one'
-                      'O'
+    @arr[num - 1] = if @active_player == @player1_name
+                      @player1
                     else
-                      'X'
+                      @player2
                     end
     puts create_table
   end
