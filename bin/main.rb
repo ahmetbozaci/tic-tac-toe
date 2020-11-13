@@ -1,16 +1,17 @@
 #!/usr/bin/env ruby
 
 class Interface
-  @@arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  def initialize 
+    @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   def create_table
     @table = "
      =------------------------=
-     |   #{@@arr[0]}   |   #{@@arr[1]}    |   #{@@arr[2]}   |
+     |   #{@arr[0]}   |   #{@arr[1]}    |   #{@arr[2]}   |
      --------------------------
-     |   #{@@arr[3]}   |   #{@@arr[4]}    |   #{@@arr[5]}   |
+     |   #{@arr[3]}   |   #{@arr[4]}    |   #{@arr[5]}   |
      --------------------------
-     |   #{@@arr[6]}   |   #{@@arr[7]}    |   #{@@arr[8]}   |
+     |   #{@arr[6]}   |   #{@arr[7]}    |   #{@arr[8]}   |
      =------------------------=
 "
   end
@@ -25,7 +26,7 @@ class Interface
   end
 
   def number
-    while @@arr.any?(Integer)
+    while @arr.any?(Integer)
 
       puts 'Player ONE enter a number:'
       player_one_input = gets.chomp
@@ -50,7 +51,7 @@ class Interface
   end
 
   def update_table(num)
-    @@arr[num - 1] = if @active_player == 'player_one'
+    @arr[num - 1] = if @active_player == 'player_one'
                        'O'
                      else
                        'X'
