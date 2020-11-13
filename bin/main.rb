@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 
 class Interface
-  def initialize 
+  def initialize
     @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  end
 
   def create_table
     @table = "
@@ -52,10 +53,10 @@ class Interface
 
   def update_table(num)
     @arr[num - 1] = if @active_player == 'player_one'
-                       'O'
-                     else
-                       'X'
-                     end
+                      'O'
+                    else
+                      'X'
+                    end
     puts create_table
   end
 end
