@@ -46,12 +46,4 @@ class Player < Interface
                     end
     puts create_table
   end
-
-  # Draw
-  def draw
-    while @number_options.length <= 3 do
-      if @number_optsions == @arr.each
-      end
-    end
-  end
 end

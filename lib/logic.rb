@@ -1,4 +1,0 @@
-class logic
-
-
-end
