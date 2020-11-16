@@ -68,8 +68,10 @@ class Interface
     puts
     print "#{@player2_name} is \"#{@player2}\""
     puts
-    puts
-    puts '---------GAME STARTED---------'
+    sleep(1.5)
+    system('clear')
+    puts '     ---------GAME STARTED---------'
+    puts create_table
     puts
   end
   # get numbers from players
@@ -86,6 +88,8 @@ class Interface
 
   def check_input(input)
     if @arr.include? input
+      system('clear')
+      system('cls')
       update_table(input)
       change_player
       puts ''
