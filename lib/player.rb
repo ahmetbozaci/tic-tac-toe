@@ -13,8 +13,6 @@ class Player < Interface
 
   def check_input(input)
     if @arr.include? input
-      system('clear')
-      system('cls')
       update_table(input)
       change_player
       puts ''
@@ -30,6 +28,7 @@ class Player < Interface
 
   # change player
   def change_player
+    puts "change player called"
     @active_player = if @active_player == @player1_name
                        @player2_name
                      else

@@ -15,6 +15,8 @@ class Interface
   end
 
   def create_table
+    system('clear')
+    system('cls')
     @table = "
      +-----------------------------+
      |         |         |         |
