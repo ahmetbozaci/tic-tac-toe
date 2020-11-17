@@ -84,6 +84,7 @@ class Interface
       # system('cls')
       update_table(input)
       win_check
+      draw_check
       change_player
       puts ''
       @number_options.delete(input)
@@ -114,8 +115,14 @@ class Interface
     puts create_table
   end
 
+  def draw_check
+    if @number_options.size == 1
+      @game = false
+      puts 'draw'
+    end
+  end
+
   def win_check
-    win = ''
     win_line = [[@arr[0], @arr[1], @arr[2]],
                 [@arr[3], @arr[4], @arr[5]],
                 [@arr[6], @arr[7], @arr[8]],
@@ -128,18 +135,17 @@ class Interface
       win_line.each do |item|
         if item.all?(@player1_mark)
           @game = false
-          win = "#{@player1_name} win"
+          puts "#{@player1_name} win"
         end
       end
     else
       win_line.each do |item|
         if item.all?(@player2_mark)
           @game = false
-          win = "#{@player2_name} win"
+          puts "#{@player2_name} win"
         end
       end
     end
-    puts win
   end
 
   # def winning_check
