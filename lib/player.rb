@@ -1,10 +1,10 @@
 require_relative './interface.rb'
 class Player < Interface
   # get numbers from players
-  @active_player = @player1_name
+
   def number
     while @count < 10
-      print "#{@active_player} enter a number: "
+      puts "#{@active_player} enter a number: "
       active_player_input = gets.chomp
       check_input(active_player_input.to_i)
     end
@@ -28,11 +28,10 @@ class Player < Interface
 
   # change player
   def change_player
-    puts "change player called"
     @active_player = if @active_player == @player1_name
                        @player2_name
                      else
-                       @player1_name
+                       @active_player = @player1_name
                      end
   end
 

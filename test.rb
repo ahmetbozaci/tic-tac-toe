@@ -49,8 +49,6 @@ class Interface
     2. When all 9 squares are full, the
     game is over. If no player has 3
     marks in a row, the game ends in a tie."
-    sleep(5)
-    system('clear')
   end
 
   # Ask players name and say their symbol
@@ -59,8 +57,6 @@ class Interface
     @player1_name = gets.chomp
     puts
     print "#{@player1_name}, your mark is \"#{@player1_mark}\""
-    sleep(2)
-    system('clear')
     print 'PLAYER TWO write your name:  '
     @player2_name = gets.chomp
     puts
@@ -86,6 +82,7 @@ class Interface
       system('clear')
       system('cls')
       update_table(input)
+      winning_check
       change_player
       puts ''
       @number_options.delete(input)
@@ -116,10 +113,38 @@ class Interface
                     end
     puts create_table
   end
-end
 
-interface = Interface.new
-interface.display
-interface.players_name
-interface.change_player
-interface.getnumber
+  def winning_check
+    @first_row = [@arr[0], @arr[1], @arr[2]]
+    @second_row = [@arr[3], @arr[4], @arr[5]]
+    @third_row = [@arr[6], @arr[7], @arr[8]]
+    @first_col = [@arr[0], @arr[3], @arr[6]]
+    @second_col = [@arr[1], @arr[4], @arr[7]]
+    @third_col = [@arr[2], @arr[5], @arr[8]]
+    @first_diag = [@arr[0], @arr[4], @arr[7]]
+    @second_diag = [@arr[2], @arr[4], @arr[6]]
+    if @first_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+      puts 'win'
+    elsif @second_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+      puts 'win'
+    elsif @third_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+      puts 'win'
+    elsif @first_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+      puts 'win'
+    elsif @second_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+      puts 'win'
+    elsif @third_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+      puts 'win'
+    elsif @first_diag.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+      puts 'win'
+    elsif @second_diag.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+      puts 'win'
+    end
+  end
+
+  interface = Interface.new
+  interface.display
+  interface.players_name
+  interface.change_player
+  interface.getnumber
+end

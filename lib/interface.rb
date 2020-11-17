@@ -3,6 +3,9 @@ class Interface
     @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     @number_options = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     @count = 1
+    @player1_name = ''
+    @player2_name = ''
+    @active_player = ''
 
     # Give random "x" or "o" to players
     game_arr = %w[X O]
@@ -17,6 +20,8 @@ class Interface
   def create_table
     system('clear')
     system('cls')
+    puts
+    puts '              TİC TAC TOE GAME'
     @table = "
      +-----------------------------+
      |         |         |         |
@@ -38,7 +43,6 @@ class Interface
   def display
     puts
     puts
-    puts '              TİC TAC TOE GAME'
     puts create_table
     puts
     puts "
@@ -57,17 +61,17 @@ class Interface
 
   # Ask players name and say their symbol
   def players_name
-    print 'PLAYER ONE write your name:  '
+    print 'PLAYER ONE enter your name:  '
     @player1_name = gets.chomp
     puts
-    print "#{@player1_name} is \"#{@player1}\""
+    puts "#{@player1_name} plays \"#{@player1}\""
+    puts "First player is #{@player1_name}"
     puts
-    puts
-    print 'PLAYER TWO write your name:  '
+    print 'PLAYER TWO enter your name:  '
     @player2_name = gets.chomp
     puts
-    print "#{@player2_name} is \"#{@player2}\""
-    puts
+    puts "#{@player2_name} plays \"#{@player2}\""
+    puts "Second player is #{@player2_name}"
     sleep(1.5)
     system('clear')
     puts '     ---------GAME STARTED---------'
