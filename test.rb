@@ -2,8 +2,8 @@ class Interface
   def initialize
     @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     @number_options = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @count = 1
 
+    @active_player = ''
     # Give random "x" or "o" to players
     game_arr = %w[X O]
     @player1_mark = game_arr.sample
@@ -12,6 +12,9 @@ class Interface
                     else
                       game_arr[0]
                     end
+    @game = true
+    @player1_name = ''
+    @player2_name = ''
   end
 
   def create_table
@@ -61,32 +64,29 @@ class Interface
     @player2_name = gets.chomp
     puts
     print "#{@player2_name}, your mark is \"#{@player2_mark}\""
-    sleep(2)
-    system('clear')
+    # sleep(2)
+    # system('clear')
     puts create_table
     puts
   end
 
   def getnumber
-    @active_player = @player1_name
-    while @count < 10
+    while @game == true
       print "#{@active_player} enter a number: "
       active_player_input = gets.chomp
       check_input(active_player_input.to_i)
     end
-    puts 'Game finished!'
   end
 
   def check_input(input)
     if @arr.include? input
-      system('clear')
-      system('cls')
+      # system('clear')
+      # system('cls')
       update_table(input)
-      winning_check
+      win_check
       change_player
       puts ''
       @number_options.delete(input)
-      @count += 1
     else
       puts
       puts "Please enter a number from #{@number_options}"
@@ -114,37 +114,72 @@ class Interface
     puts create_table
   end
 
-  def winning_check
-    @first_row = [@arr[0], @arr[1], @arr[2]]
-    @second_row = [@arr[3], @arr[4], @arr[5]]
-    @third_row = [@arr[6], @arr[7], @arr[8]]
-    @first_col = [@arr[0], @arr[3], @arr[6]]
-    @second_col = [@arr[1], @arr[4], @arr[7]]
-    @third_col = [@arr[2], @arr[5], @arr[8]]
-    @first_diag = [@arr[0], @arr[4], @arr[7]]
-    @second_diag = [@arr[2], @arr[4], @arr[6]]
-    if @first_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-      puts 'win'
-    elsif @second_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-      puts 'win'
-    elsif @third_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-      puts 'win'
-    elsif @first_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-      puts 'win'
-    elsif @second_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-      puts 'win'
-    elsif @third_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-      puts 'win'
-    elsif @first_diag.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-      puts 'win'
-    elsif @second_diag.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-      puts 'win'
+  def win_check
+    win = ''
+    win_line = [[@arr[0], @arr[1], @arr[2]],
+                [@arr[3], @arr[4], @arr[5]],
+                [@arr[6], @arr[7], @arr[8]],
+                [@arr[0], @arr[3], @arr[6]],
+                [@arr[1], @arr[4], @arr[7]],
+                [@arr[0], @arr[4], @arr[8]],
+                [@arr[2], @arr[5], @arr[8]],
+                [@arr[2], @arr[4], @arr[6]]]
+    if @active_player == @player1_name
+      win_line.each do |item|
+        if item.all?(@player1_mark)
+          @game = false
+          win = "#{@player1_name} win"
+        end
+      end
+    else
+      win_line.each do |item|
+        if item.all?(@player2_mark)
+          @game = false
+          win = "#{@player2_name} win"
+        end
+      end
     end
+    puts win
   end
 
-  interface = Interface.new
-  interface.display
-  interface.players_name
-  interface.change_player
-  interface.getnumber
+  # def winning_check
+  #   @first_row = [@arr[0], @arr[1], @arr[2]]
+  #   @second_row = [@arr[3], @arr[4], @arr[5]]
+  #   @third_row = [@arr[6], @arr[7], @arr[8]]
+  #   @first_col = [@arr[0], @arr[3], @arr[6]]
+  #   @second_col = [@arr[1], @arr[4], @arr[7]]
+  #   @third_col = [@arr[2], @arr[5], @arr[8]]
+  #   @first_diag = [@arr[0], @arr[4], @arr[8]]
+  #   @second_diag = [@arr[2], @arr[4], @arr[6]]
+  #   if @first_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+  #     puts 'win'
+  #     @game = "off"
+  #   elsif @second_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+  #     puts 'win'
+  #     @game = "off"
+  #   elsif @third_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+  #     puts 'win'
+  #     @game = "off"
+  #   elsif @first_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+  #     puts 'win'
+  #     @game = "off"
+  #   elsif @second_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+  #     puts 'win'
+  #     @game = "off"
+  #   elsif @third_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+  #     puts 'win'
+  #     @game = "off"
+  #   elsif @first_diag.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+  #     puts 'win'
+  #     @game = "off"
+  #   elsif @second_diag.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
+  #     puts 'win'
+  #     @game = "off"
+  #   end
+  # end
 end
+interface = Interface.new
+interface.display
+interface.players_name
+interface.change_player
+interface.getnumber
