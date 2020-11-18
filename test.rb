@@ -15,6 +15,7 @@ class Interface
     @game = true
     @player1_name = ''
     @player2_name = ''
+    @win = ''
   end
 
   def create_table
@@ -42,16 +43,16 @@ class Interface
     puts '              TİC TAC TOE GAME'
     puts create_table
     puts
-    puts "
-                GAME RULES"
-    puts "
-    1. The first player to get 3 of her/his
-    marks in a row (up, down, across, or
-    diagonally) is the winner."
-    puts "
-    2. When all 9 squares are full, the
-    game is over. If no player has 3
-    marks in a row, the game ends in a tie."
+    # puts "
+    #             GAME RULES"
+    # puts "
+    # 1. The first player to get 3 of her/his
+    # marks in a row (up, down, across, or
+    # diagonally) is the winner."
+    # puts "
+    # 2. When all 9 squares are full, the
+    # game is over. If no player has 3
+    # marks in a row, the game ends in a tie."
   end
 
   # Ask players name and say their symbol
@@ -116,73 +117,39 @@ class Interface
   end
 
   def draw_check
-    if @number_options.size == 1
-      @game = false
-      puts 'draw'
-    end
+    state if @number_options.size == 1 && @win == ''
+    #   @game = false
+    #   puts 'draw'
+    # end
+  end
+
+  def state
+    puts 'draw'
+    @game = false
   end
 
   def win_check
-    win_line = [[@arr[0], @arr[1], @arr[2]],
-                [@arr[3], @arr[4], @arr[5]],
-                [@arr[6], @arr[7], @arr[8]],
-                [@arr[0], @arr[3], @arr[6]],
-                [@arr[1], @arr[4], @arr[7]],
-                [@arr[0], @arr[4], @arr[8]],
-                [@arr[2], @arr[5], @arr[8]],
-                [@arr[2], @arr[4], @arr[6]]]
+    win_line = [[@arr[0], @arr[1], @arr[2]], [@arr[3], @arr[4], @arr[5]],
+                [@arr[6], @arr[7], @arr[8]], [@arr[0], @arr[3], @arr[6]],
+                [@arr[1], @arr[4], @arr[7]], [@arr[0], @arr[4], @arr[8]],
+                [@arr[2], @arr[5], @arr[8]], [@arr[2], @arr[4], @arr[6]]]
     if @active_player == @player1_name
       win_line.each do |item|
         if item.all?(@player1_mark)
           @game = false
-          puts "#{@player1_name} win"
+          @win = "#{@player1_name} win"
         end
       end
     else
       win_line.each do |item|
         if item.all?(@player2_mark)
           @game = false
-          puts "#{@player2_name} win"
+          @win = "#{@player2_name} win"
         end
       end
     end
+    puts @win
   end
-
-  # def winning_check
-  #   @first_row = [@arr[0], @arr[1], @arr[2]]
-  #   @second_row = [@arr[3], @arr[4], @arr[5]]
-  #   @third_row = [@arr[6], @arr[7], @arr[8]]
-  #   @first_col = [@arr[0], @arr[3], @arr[6]]
-  #   @second_col = [@arr[1], @arr[4], @arr[7]]
-  #   @third_col = [@arr[2], @arr[5], @arr[8]]
-  #   @first_diag = [@arr[0], @arr[4], @arr[8]]
-  #   @second_diag = [@arr[2], @arr[4], @arr[6]]
-  #   if @first_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-  #     puts 'win'
-  #     @game = "off"
-  #   elsif @second_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-  #     puts 'win'
-  #     @game = "off"
-  #   elsif @third_row.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-  #     puts 'win'
-  #     @game = "off"
-  #   elsif @first_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-  #     puts 'win'
-  #     @game = "off"
-  #   elsif @second_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-  #     puts 'win'
-  #     @game = "off"
-  #   elsif @third_col.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-  #     puts 'win'
-  #     @game = "off"
-  #   elsif @first_diag.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-  #     puts 'win'
-  #     @game = "off"
-  #   elsif @second_diag.all? { |num| num == 'X' } || @first_row.all? { |num| num == 'O' }
-  #     puts 'win'
-  #     @game = "off"
-  #   end
-  # end
 end
 interface = Interface.new
 interface.display
