@@ -50,5 +50,5 @@ def update_table(num)
   system('cls')
   system('clear')
   puts create_table
-  puts "array after update table #{@arr}"
+  puts "  array after update table #{@arr}"
 end

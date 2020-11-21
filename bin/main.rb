@@ -24,7 +24,7 @@ end
 
 # Ask players name and say their symbol
 def players_name
-  print 'Player one enter your name:  '
+  print '  Player one enter your name:  '
   @player1_name = gets.chomp
   player_one = Player.new()
   player_one.name = @player1_name
@@ -32,12 +32,12 @@ def players_name
   player_one.mark = @marks[0]
   puts
 
-  print 'Player two enter your name:  '
+  print '  Player two enter your name:  '
   @player2_name = gets.chomp
   player_two = Player.new()
   player_two.name = @player2_name
   player_two.mark = @marks[1]
-  puts "#{@player2_name} mark is #{@marks[1]}"
+  puts "  #{@player2_name} mark is #{@marks[1]}"
   puts
    sleep(2)
    system('cls')
@@ -49,12 +49,12 @@ end
 def user_mark
       player1_mark = 'empty'
       loop do
-      print 'Please enter either x or o: '
+      print '  Please enter either x or o: '
       player1_mark = gets.chomp
 
     break if ['x', 'X', 'o', 'O'].include?player1_mark
     end
-      puts "#{@player1_name} mark is #{player1_mark}"
+      puts "  #{@player1_name} mark is #{player1_mark}"
       if ['x', 'X'].include?player1_mark
         player2_mark = 'O'
       else
@@ -87,14 +87,12 @@ end
 @game = true
 def getnumber
   while @game == true
-    print "#{@active_player} enter a number: "
+    print "  #{@active_player} enter a number: "
     @active_player_input = gets.chomp
-    check_input(@active_player_input.to_i)  
+    check_input(@active_player_input.to_i)
   end
-  puts 'Game finished....'
+  puts '  Game finished....'
 end
-
-
 
 game_name
 players_name
