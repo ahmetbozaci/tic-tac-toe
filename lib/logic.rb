@@ -2,7 +2,7 @@ def draw_check
   return unless @number_options.size == 1 && @win == ''
 
   @game = false
-  puts '  Draw'
+  output('  Draw')
 end
 
 def win_check
@@ -25,5 +25,5 @@ def win_check
       end
     end
   end
-  puts @win
+  output(@win)
 end

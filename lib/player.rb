@@ -5,5 +5,4 @@ class Player
     @name = name
     @mark = mark
   end
-  # change player
 end

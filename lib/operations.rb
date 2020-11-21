@@ -8,12 +8,9 @@ def check_input(input)
     update_table(input)
     win_check
     draw_check
-    puts ''
     @number_options.delete(input)
   else
-    puts
-    puts "  Please enter a number from #{@number_options}"
-    puts
+    output("  Please enter a number from #{@number_options}")
   end
 end
 
@@ -27,14 +24,11 @@ end
 
 # update table after each player play
 def update_table(num)
-  if @active_player == @player2_name
-    @arr[num - 1] = @marks[1]
-
-    puts @marks[1]
-  else
-    puts @marks[0]
-    @arr[num - 1] = @marks[0]
-  end
+  @arr[num - 1] = if @active_player == @player2_name
+                    @marks[1]
+                  else
+                    @marks[0]
+                  end
   change_player(@player1_name, @player2_name)
-  puts create_table
+  create_table
 end

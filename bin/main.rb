@@ -7,7 +7,7 @@ require_relative '../lib/operations.rb'
 def game_name
   puts
   puts
-  puts create_table
+  create_table
   puts '
               GAME RULES'
   puts '
@@ -40,7 +40,7 @@ def players_name
   puts "  #{@player2_name} mark is #{@marks[1]}"
   puts
   sleep(2)
-  puts create_table
+  create_table
   puts
 end
 
@@ -83,6 +83,7 @@ def create_table
    +-----------------------------+
 
 "
+  puts @table
 end
 @game = true
 @win = ''
@@ -92,10 +93,13 @@ def getnumber
     @active_player_input = gets.chomp
     check_input(@active_player_input.to_i)
   end
-  puts '  Game finished....'
   puts
   puts '  Would you like to play again?'
   prompt_player
+end
+
+def output(content)
+  puts content
 end
 
 def prompt_player
@@ -106,7 +110,7 @@ def prompt_player
     @win = ''
     @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     @number_options = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    puts create_table
+    create_table
     getnumber
   elsif %w[No no N n].include? user_answer
     puts '  Goodbye!'
