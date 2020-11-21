@@ -85,6 +85,7 @@ def create_table
 "
 end
 @game = true
+@win = ''
 def getnumber
   while @game == true
     print "  #{@active_player} enter a number: "
