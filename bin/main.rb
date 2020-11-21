@@ -93,6 +93,26 @@ def getnumber
     check_input(@active_player_input.to_i)
   end
   puts '  Game finished....'
+  puts
+  puts '  Would you like to play again?'
+  prompt_player
+end
+
+def prompt_player
+  print '  Please type y or n: '
+  user_answer = gets.chomp.to_s
+  if %w[Yes yes Y y].include? user_answer
+    @game = true
+    @win = ''
+    @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @number_options = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    puts create_table
+    getnumber
+  elsif %w[No no N n].include? user_answer
+    puts '  Goodbye!'
+  else
+    prompt_player
+  end
 end
 
 game_name
