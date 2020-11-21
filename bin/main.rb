@@ -26,7 +26,7 @@ end
 def players_name
   print '  Player one enter your name:  '
   @player1_name = gets.chomp
-  player_one = Player.new()
+  player_one = Player.new
   player_one.name = @player1_name
   user_mark
   player_one.mark = @marks[0]
@@ -34,38 +34,37 @@ def players_name
 
   print '  Player two enter your name:  '
   @player2_name = gets.chomp
-  player_two = Player.new()
+  player_two = Player.new
   player_two.name = @player2_name
   player_two.mark = @marks[1]
   puts "  #{@player2_name} mark is #{@marks[1]}"
   puts
-   sleep(2)
-   system('cls')
-   system('clear')
-   puts create_table
+  sleep(2)
+  puts create_table
   puts
 end
 
 def user_mark
-      player1_mark = 'empty'
-      loop do
-      print '  Please enter either x or o: '
-      player1_mark = gets.chomp
+  player1_mark = 'empty'
+  loop do
+    print '  Please enter either x or o: '
+    player1_mark = gets.chomp
 
-    break if ['x', 'X', 'o', 'O'].include?player1_mark
-    end
-      puts "  #{@player1_name} mark is #{player1_mark}"
-      if ['x', 'X'].include?player1_mark
-        player2_mark = 'O'
-      else
-        player2_mark = 'X'
-      end
-      return @marks = [player1_mark, player2_mark]
+    break if %w[x X o O].include? player1_mark
+  end
+  puts "  #{@player1_name} mark is #{player1_mark}"
+  player2_mark = if %w[x X].include? player1_mark
+                   'O'
+                 else
+                   'X'
+                 end
+  @marks = [player1_mark, player2_mark]
 end
 
 # create table
 def create_table
-
+  system('cls')
+  system('clear')
   @table = "
              TİC TAC TOE GAME
 
@@ -82,6 +81,7 @@ def create_table
    |    #{@arr[6]}    |    #{@arr[7]}    |    #{@arr[8]}    |
    |         |         |         |
    +-----------------------------+
+
 "
 end
 @game = true

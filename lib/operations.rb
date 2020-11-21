@@ -3,12 +3,8 @@ require_relative './logic.rb'
 @number_options = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-
 def check_input(input)
-  #puts "#{@player1_name} and  #{@player2_name} player names from check input"
   if @number_options.include? input
-    # system('clear')
-    # system('cls')
     update_table(input)
     win_check
     draw_check
@@ -16,28 +12,21 @@ def check_input(input)
     @number_options.delete(input)
   else
     puts
-    puts "Please enter a number from #{@number_options}"
+    puts "  Please enter a number from #{@number_options}"
     puts
   end
 end
 
-def change_player(a, b)
-
-
-   if @active_player == a
-      @active_player = b
+def change_player(aaa, bbb)
+  @active_player = if @active_player == aaa
+                     bbb
                    else
-      @active_player = a
+                     aaa
                    end
 end
 
 # update table after each player play
 def update_table(num)
-  puts 'update table called'
-  puts @player2_name
-  puts @player1_name
- puts "active player is #{@active_player}"
-
   if @active_player == @player2_name
     @arr[num - 1] = @marks[1]
 
@@ -47,8 +36,5 @@ def update_table(num)
     @arr[num - 1] = @marks[0]
   end
   change_player(@player1_name, @player2_name)
-  system('cls')
-  system('clear')
   puts create_table
-  puts "  array after update table #{@arr}"
 end

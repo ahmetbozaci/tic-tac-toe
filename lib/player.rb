@@ -1,5 +1,4 @@
-
-#require_relative 'main.rb'
+# require_relative 'main.rb'
 class Player
   attr_accessor :name, :mark
   def initialize
