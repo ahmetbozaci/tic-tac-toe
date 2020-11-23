@@ -91,7 +91,7 @@ def getnumber
   while @game == true
     print "  #{@active_player} enter a number: "
     @active_player_input = gets.chomp
-    check_input(@active_player_input.to_i)
+    check_input(@active_player_input)
   end
   puts
   puts '  Would you like to play again?'
@@ -109,7 +109,7 @@ def prompt_player
     @game = true
     @win = ''
     @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @number_options = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    @number_options = %w[1 2 3 4 5 6 7 8 9]
     create_table
     getnumber
   elsif %w[No no N n].include? user_answer
