@@ -4,7 +4,7 @@ require_relative '../lib/game.rb'
 
 # Dislay Tic Tac Toe Table and Rules
 def game_start
-  game = Game.new("player1","player2","mark1","mark2")
+  game = Game.new('player1', 'player2', 'mark1', 'mark2')
   game.create_table
   puts '
               GAME RULES'
@@ -23,13 +23,14 @@ def game_start
 end
 game_start
 
-# Ask players name and mark
+# Ask players name
 def players_name(name)
   puts
   print "#{name} enter your name:  "
-  player = gets.chomp.capitalize
+  gets.chomp.capitalize
 end
 
+# Ask mark
 def user_mark
   mark1 = ''
   loop do
@@ -38,25 +39,19 @@ def user_mark
     mark1 = gets.chomp.upcase
     break if %w[X O].include? mark1
   end
-  return mark1
+  mark1
 end
 
 player1 = Player.new(players_name('Player One'), user_mark)
-mark2 = player1.mark == "X" ? "O" : "X"
+mark2 = player1.mark == 'X' ? 'O' : 'X'
 player2 = Player.new(players_name('Player Two'), mark2)
 
-
-game = Game.new(player1.name,player2.name,player1.mark,player2.mark)
+game = Game.new(player1.name, player2.name, player1.mark, player2.mark)
 system('clear')
 game.create_table
 puts
 puts
 puts game.getnumber
-
-
-# def output(content)
-#   puts content
-# end
 
 # def prompt_player
 #   print '  Please type y or n: '
@@ -64,7 +59,7 @@ puts game.getnumber
 #   if %w[Yes yes Y y].include? user_answer
 #     @game = true
 #     @win = ''
-   
+
 #     @number_options = %w[1 2 3 4 5 6 7 8 9]
 #     create_table
 #     getnumber
@@ -74,8 +69,3 @@ puts game.getnumber
 #     prompt_player
 #   end
 # end
-
-
-
-# change_player(player1.name, player2.name)
-
