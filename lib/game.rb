@@ -87,21 +87,23 @@ class Game
   end
 
   # if move is win show player name and say win
-  def win_check
+  def win_lines
     @win_line = [[@arr[0], @arr[1], @arr[2]], [@arr[3], @arr[4], @arr[5]],
                  [@arr[6], @arr[7], @arr[8]], [@arr[0], @arr[3], @arr[6]],
                  [@arr[1], @arr[4], @arr[7]], [@arr[0], @arr[4], @arr[8]],
                  [@arr[2], @arr[5], @arr[8]], [@arr[2], @arr[4], @arr[6]]]
+  end
 
+  def win_check
     if @active_player == @player2
-      @win_line.each do |item|
+      win_lines.each do |item|
         if item.all?(@mark1)
           @game_status = false
           @win = "#{@player1} wins"
         end
       end
     else
-      @win_line.each do |item|
+      win_lines.each do |item|
         if item.all?(@mark2)
           @game_status = false
           @win = "#{@player2} wins"
