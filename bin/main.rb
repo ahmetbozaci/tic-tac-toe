@@ -50,22 +50,4 @@ game = Game.new(player1.name, player2.name, player1.mark, player2.mark)
 system('clear')
 game.create_table
 puts
-puts
-puts game.getnumber
-
-# def prompt_player
-#   print '  Please type y or n: '
-#   user_answer = gets.chomp.to_s
-#   if %w[Yes yes Y y].include? user_answer
-#     @game = true
-#     @win = ''
-
-#     @number_options = %w[1 2 3 4 5 6 7 8 9]
-#     create_table
-#     getnumber
-#   elsif %w[No no N n].include? user_answer
-#     puts '  Goodbye!'
-#   else
-#     prompt_player
-#   end
-# end
+game.getnumber

@@ -53,7 +53,9 @@ class Game
       draw_check
       @number_options.delete(input)
     else
+      puts
       puts "Please enter a number from #{@number_options}"
+      puts
     end
   end
 
@@ -75,7 +77,7 @@ class Game
                          end
     change_player(player1, player2)
     system('clear')
-    puts create_table
+    create_table
   end
 
   # if move is draw say players
@@ -84,6 +86,7 @@ class Game
 
     @game_status = false
     puts 'Draw'
+    play_again
   end
 
   # if move is win show player name and say win
@@ -111,5 +114,29 @@ class Game
       end
     end
     puts @win
+    play_again
+  end
+
+  def play_again
+    while @game_status == false
+      print 'Would you like to play again?(Y or N): '
+      answer = gets.chomp.upcase
+      if answer == 'Y'
+        @game_status = true
+        @win = ''
+        @number_options = %w[1 2 3 4 5 6 7 8 9]
+        @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        system('clear')
+        create_table
+        getnumber
+      elsif answer == 'N'
+        @game_status = false
+        puts 'Game Finished!'
+        break
+      else
+        puts 'Please write Y or N'
+        play_again
+      end
+    end
   end
 end
