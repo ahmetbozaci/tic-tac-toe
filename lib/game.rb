@@ -16,6 +16,8 @@ class Game
   end
 
   def create_table
+    system('cls')
+    system('clear')
     puts @table = "
              TİC TAC TOE GAME
 

@@ -23,11 +23,31 @@ def game_start
 end
 game_start
 
+def check_nam(word)
+  if word.empty?
+    print 'Name can not be blank, please enter a name: '
+    false
+  else
+    word.size.times do |i|
+      unless ('a'..'z').include? word[i]
+        print 'Please enter a proper name:  '
+        return false
+      end
+    end
+    puts 'true'
+    true
+  end
+end
+
 # Ask players name
 def players_name(name)
-  puts
   print "#{name} enter your name:  "
-  gets.chomp.capitalize
+  nam = ''
+  loop do
+    nam = gets.chomp
+    break if check_nam(nam)
+  end
+  nam
 end
 
 # Ask mark
@@ -42,9 +62,9 @@ def user_mark
   mark1
 end
 
-player1 = Player.new(players_name('Player One'), user_mark)
+player1 = Player.new(players_name('Player One').capitalize, user_mark)
 mark2 = player1.mark == 'X' ? 'O' : 'X'
-player2 = Player.new(players_name('Player Two'), mark2)
+player2 = Player.new(players_name('Player Two').capitalize, mark2)
 
 game = Game.new(player1.name, player2.name, player1.mark, player2.mark)
 system('clear')
