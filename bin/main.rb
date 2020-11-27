@@ -34,7 +34,6 @@ def check_nam(word)
         return false
       end
     end
-    puts 'true'
     true
   end
 end
