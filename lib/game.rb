@@ -102,6 +102,8 @@ class Game
         if item.all?(@mark1)
           @game_status = false
           @win = "  #{@player1} wins"
+          output(@win)
+          play_again
         end
       end
     else
@@ -109,18 +111,17 @@ class Game
         if item.all?(@mark2)
           @game_status = false
           @win = "  #{@player2} wins"
+         output(@win)
+         play_again
         end
       end
     end
-    output(@win)
-    play_again
   end
 
   def play_again
-    while @game_status == false
       prints '  Would you like to play again?(Y or N): '
       answer = ask_player
-      if %w[y Y yes Yes].include? answer
+       if %w[y Y yes Yes].include? answer
         @game_status = true
         @win = ''
         @number_options = %w[1 2 3 4 5 6 7 8 9]
@@ -131,10 +132,9 @@ class Game
       elsif %w[n N no No].include? answer
         @game_status = false
         output '  Game Finished!'
-        break
+        system('exit!')
       else
         play_again
       end
     end
   end
-end
