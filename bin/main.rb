@@ -1,8 +1,6 @@
-#!/usr/bin/env ruby
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 
-# Dislay Tic Tac Toe Table and Rules
 def game_start
   game = Game.new('player1', 'player2', 'mark1', 'mark2')
   game.create_table
@@ -28,11 +26,11 @@ def check_nam(word)
   else
     word.size.times do |i|
       unless ('a'..'z').include? word[i].downcase
-        print '  Please enter a proper name:  '
+        print '  Please enter a proper name: '
         return false
       end
     end
-    if @first_name_entered == true && word == @first_name
+    if @first_name_entered == true && word.downcase == @first_name.downcase
       print '  This name is already taken, please enter a different name: '
       return false
     else
@@ -43,7 +41,6 @@ def check_nam(word)
   end
 end
 
-# Ask players name
 def players_name(name)
   print "  #{name} enter your name:  "
   nam = ''
@@ -54,7 +51,6 @@ def players_name(name)
   nam
 end
 
-# Ask mark
 def user_mark
   mark1 = ''
   loop do
@@ -77,13 +73,15 @@ def ask_player
   ask = gets.chomp
   ask
 end
+game_start
 player1 = Player.new(players_name('Player One').capitalize, user_mark)
 mark2 = player1.mark == 'X' ? 'O' : 'X'
 player2 = Player.new(players_name('Player Two').capitalize, mark2)
-
+system('cls')
+system('clear')
 game = Game.new(player1.name, player2.name, player1.mark, player2.mark)
 
-# game.create_table
-game_start
+game.create_table
+
 puts
 game.getnumber

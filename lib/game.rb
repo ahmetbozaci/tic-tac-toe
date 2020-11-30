@@ -1,5 +1,4 @@
 require_relative '../lib/player.rb'
-# require_relative '../bin/main.rb'
 
 class Game
   attr_reader :player1, :player2
@@ -17,7 +16,6 @@ class Game
     @table = ''
   end
 
-  # require_relative '../bin/main.rb
   def create_table
     system('cls')
     system('clear')
@@ -50,7 +48,6 @@ class Game
     end
   end
 
-  # check numbers if not valid and update table if valid
   def check_input(input)
     input = input.strip
     if @number_options.include? input
@@ -65,7 +62,6 @@ class Game
     end
   end
 
-  # change player
   def change_player(player1, player2)
     @active_player = if @active_player == player1
                        player2
@@ -74,7 +70,6 @@ class Game
                      end
   end
 
-  # update table
   def update_table(num)
     @arr[num.to_i - 1] = if @active_player == @player2
                            @mark2
@@ -86,7 +81,6 @@ class Game
     create_table
   end
 
-  # if move is draw say players
   def draw_check
     return unless @number_options.size == 1 && @win == ''
 
@@ -95,7 +89,6 @@ class Game
     play_again
   end
 
-  # if move is win show player name and say win
   def win_lines
     @win_line = [[@arr[0], @arr[1], @arr[2]], [@arr[3], @arr[4], @arr[5]],
                  [@arr[6], @arr[7], @arr[8]], [@arr[0], @arr[3], @arr[6]],
