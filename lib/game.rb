@@ -1,4 +1,6 @@
 require_relative '../lib/player.rb'
+#require_relative '../bin/main.rb'
+
 
 class Game
   attr_reader :player1, :player2
@@ -13,12 +15,13 @@ class Game
     @win = ''
     @mark1 = mark1
     @mark2 = mark2
+    @table = ''
   end
-
+  #require_relative '../bin/main.rb
   def create_table
     system('cls')
     system('clear')
-    puts @table = "
+    @table = "
              TİC TAC TOE GAME
 
    +-----------------------------+
@@ -36,11 +39,12 @@ class Game
    +-----------------------------+
 
 "
+  output (@table)
   end
 
   def getnumber
     while @game_status == true
-      print "#{@active_player} enter a number:  "
+      prints ("  #{@active_player} enter a number:  ")
       player_input = gets.chomp
       check_input(player_input)
     end
@@ -55,9 +59,9 @@ class Game
       draw_check
       @number_options.delete(input)
     else
-      puts
-      puts "Please enter a number from #{@number_options}"
-      puts
+      output("    ")
+      prints("  Please enter a number from #{@number_options}")
+      output('    ')
     end
   end
 
@@ -87,7 +91,7 @@ class Game
     return unless @number_options.size == 1 && @win == ''
 
     @game_status = false
-    puts 'Draw'
+    output('  Draw')
     play_again
   end
 
@@ -104,24 +108,24 @@ class Game
       win_lines.each do |item|
         if item.all?(@mark1)
           @game_status = false
-          @win = "#{@player1} wins"
+          @win = "  #{@player1} wins"
         end
       end
     else
       win_lines.each do |item|
         if item.all?(@mark2)
           @game_status = false
-          @win = "#{@player2} wins"
+          @win = "  #{@player2} wins"
         end
       end
     end
-    puts @win
+    output(@win)
     play_again
   end
 
   def play_again
     while @game_status == false
-      print 'Would you like to play again?(Y or N): '
+      prints '  Would you like to play again?(Y or N): '
       answer = gets.chomp.upcase
       if answer == 'Y'
         @game_status = true
@@ -133,10 +137,9 @@ class Game
         getnumber
       elsif answer == 'N'
         @game_status = false
-        puts 'Game Finished!'
+        output '  Game Finished!'
         break
       else
-        puts 'Please write Y or N'
         play_again
       end
     end
