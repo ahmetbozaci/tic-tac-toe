@@ -127,7 +127,7 @@ class Game
     while @game_status == false
       prints '  Would you like to play again?(Y or N): '
       answer = ask_player
-      if %w[y Y yes Yes].include?answer
+      if %w[y Y yes Yes].include? answer
         @game_status = true
         @win = ''
         @number_options = %w[1 2 3 4 5 6 7 8 9]
@@ -135,7 +135,7 @@ class Game
         system('clear')
         create_table
         getnumber
-      elsif %w[n N no No].include?answer
+      elsif %w[n N no No].include? answer
         @game_status = false
         output '  Game Finished!'
         break
