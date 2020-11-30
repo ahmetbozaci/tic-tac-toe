@@ -18,12 +18,10 @@ def game_start
   MARKS IN A ROW, THE GAME ENDS IN A TIE.'
   puts
   sleep(2)
-
 end
 
 @first_name_entered = false
 def check_nam(word)
-
   if word.empty?
     print '  Name can not be blank, please enter a name: '
     false
@@ -71,18 +69,21 @@ def output(text)
   puts text
 end
 
-def prints (text)
+def prints(text)
   print text
 end
 
-
+def ask_player
+  ask = gets.chomp
+  ask
+end
 player1 = Player.new(players_name('Player One').capitalize, user_mark)
 mark2 = player1.mark == 'X' ? 'O' : 'X'
 player2 = Player.new(players_name('Player Two').capitalize, mark2)
 
 game = Game.new(player1.name, player2.name, player1.mark, player2.mark)
 
-#game.create_table
+# game.create_table
 game_start
 puts
 game.getnumber

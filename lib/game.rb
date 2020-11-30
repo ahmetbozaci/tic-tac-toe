@@ -1,6 +1,5 @@
 require_relative '../lib/player.rb'
-#require_relative '../bin/main.rb'
-
+# require_relative '../bin/main.rb'
 
 class Game
   attr_reader :player1, :player2
@@ -17,7 +16,8 @@ class Game
     @mark2 = mark2
     @table = ''
   end
-  #require_relative '../bin/main.rb
+
+  # require_relative '../bin/main.rb
   def create_table
     system('cls')
     system('clear')
@@ -39,13 +39,13 @@ class Game
    +-----------------------------+
 
 "
-  output (@table)
+    output(@table)
   end
 
   def getnumber
     while @game_status == true
-      prints ("  #{@active_player} enter a number:  ")
-      player_input = gets.chomp
+      prints("  #{@active_player} enter a number:  ")
+      player_input = ask_player
       check_input(player_input)
     end
   end
@@ -59,9 +59,9 @@ class Game
       draw_check
       @number_options.delete(input)
     else
-      output("    ")
+      output(' ')
       prints("  Please enter a number from #{@number_options}")
-      output('    ')
+      output(' ')
     end
   end
 
@@ -126,8 +126,8 @@ class Game
   def play_again
     while @game_status == false
       prints '  Would you like to play again?(Y or N): '
-      answer = gets.chomp.upcase
-      if answer == 'Y'
+      answer = ask_player
+      if %w[y Y yes Yes].include?answer
         @game_status = true
         @win = ''
         @number_options = %w[1 2 3 4 5 6 7 8 9]
@@ -135,7 +135,7 @@ class Game
         system('clear')
         create_table
         getnumber
-      elsif answer == 'N'
+      elsif %w[n N no No].include?answer
         @game_status = false
         output '  Game Finished!'
         break
