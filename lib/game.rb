@@ -99,42 +99,42 @@ class Game
   def win_check
     if @active_player == @player2
       win_lines.each do |item|
-        if item.all?(@mark1)
-          @game_status = false
-          @win = "  #{@player1} wins"
-          output(@win)
-          play_again
-        end
+        next unless item.all?(@mark1)
+
+        @game_status = false
+        @win = "  #{@player1} wins"
+        output(@win)
+        play_again
       end
     else
       win_lines.each do |item|
-        if item.all?(@mark2)
-          @game_status = false
-          @win = "  #{@player2} wins"
-         output(@win)
-         play_again
-        end
+        next unless item.all?(@mark2)
+
+        @game_status = false
+        @win = "  #{@player2} wins"
+        output(@win)
+        play_again
       end
     end
   end
 
   def play_again
-      prints '  Would you like to play again?(Y or N): '
-      answer = ask_player
-       if %w[y Y yes Yes].include? answer
-        @game_status = true
-        @win = ''
-        @number_options = %w[1 2 3 4 5 6 7 8 9]
-        @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        system('clear')
-        create_table
-        getnumber
-      elsif %w[n N no No].include? answer
-        @game_status = false
-        output '  Game Finished!'
-        system('exit!')
-      else
-        play_again
-      end
+    prints '  Would you like to play again?(Y or N): '
+    answer = ask_player
+    if %w[y Y yes Yes].include? answer
+      @game_status = true
+      @win = ''
+      @number_options = %w[1 2 3 4 5 6 7 8 9]
+      @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      system('clear')
+      create_table
+      getnumber
+    elsif %w[n N no No].include? answer
+      @game_status = false
+      output '  Game Finished!'
+      system('exit!')
+    else
+      play_again
     end
   end
+end
