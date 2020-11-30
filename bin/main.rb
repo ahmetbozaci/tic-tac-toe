@@ -21,8 +21,9 @@ def game_start
 
 end
 
-first_name_entered = false
+@first_name_entered = false
 def check_nam(word)
+
   if word.empty?
     print '  Name can not be blank, please enter a name: '
     false
@@ -33,6 +34,13 @@ def check_nam(word)
         return false
       end
     end
+    if @first_name_entered == true && word == @first_name
+      print '  This name is already taken, please enter a different name: '
+      return false
+    else
+      @first_name = word
+    end
+    @first_name_entered = true
     true
   end
 end
@@ -46,7 +54,6 @@ def players_name(name)
     break if check_nam(nam)
   end
   nam
-  first_name_entered = true
 end
 
 # Ask mark
