@@ -27,7 +27,7 @@ def check_nam(word)
     false
   else
     word.size.times do |i|
-      unless ('a'..'z').include? word[i]
+      unless ('a'..'z').include? word[i].downcase
         print '  Please enter a proper name:  '
         return false
       end
