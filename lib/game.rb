@@ -57,7 +57,7 @@ class Game
       @number_options.delete(input)
     else
       output(' ')
-      prints("  Please enter a number from #{@number_options}")
+      printing("  Please enter a number from #{@number_options}")
       output(' ')
     end
   end
