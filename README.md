@@ -1,8 +1,8 @@
-### Tic Tac Toe
+# Tic Tac Toe
 
 In this project, we built tic tac toe game from scratch using Ruby progamming language, the project is a requirement in Microverse technical curriculum.
 
-## Instructions to play the game
+### Instructions to play the game
 
   1. THE FIRST PLAYER TO GET 3 OF HER/HIS
   MARKS IN A ROW (UP, DOWN, ACROSS, OR
@@ -14,20 +14,20 @@ In this project, we built tic tac toe game from scratch using Ruby progamming la
   
   
 
-# Screenshot
+### Screenshots
 <img src='./screenshot.png'>
 
-## Play live
+### Play live
 Link:[](https://repl.it/@Rayan84/tic-tac-toe#.replit)
 
-# :hammer: Built With
+### :hammer: Built With
 
 * Ruby
 * Atom
 * VScode
 * Robocop
 
-#  :bust_in_silhouette: Worked on this challenge:
+###  :bust_in_silhouette: Worked on this challenge:
 ## Rayan Rassam
 * Github:[@Rayan84](https://github.com/Rayan84)
 * Twitter:[@Rayan65096267](https://twitter.com/Rayan65096267)
@@ -44,8 +44,8 @@ Link:[](https://repl.it/@Rayan84/tic-tac-toe#.replit)
 * LinkedIn:[@ahmtbozaci](https://www.linkedin.com/in/ahmetbozaci/)
 
 ## Credits
-The original project is by Odin[](https://www.theodinproject.com/courses/ruby-programming/lessons/bubble-sort)
+The project is part of Microverse curriculum
 
 ## Contribution
-Feedbacks, issues or feature requests are welcome!
+Feedbacks, issues or feature requests are welcomed!
 Please follow this link to create an issue [Issue](https://github.com/Rayan84/Bubble_sort/issues) and help me improve!
