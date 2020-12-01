@@ -2,16 +2,13 @@
 
 In this project, we built tic tac toe game from scratch using Ruby progamming language, the project is a requirement in Microverse technical curriculum.
 
-### Instructions to play the game
+### Game rules and instructions
 
-  1. THE FIRST PLAYER TO GET 3 OF HER/HIS
-  MARKS IN A ROW (UP, DOWN, ACROSS, OR
-  DIAGONALLY) IS THE WINNER.
+This game is simple and very popular, it's played by two players, each one gets a distinguished symbol (usually X or O).
+The objective for each player is to place own sybmol on three squares that comprise a straight line. The line may be horizontal, vertical or diagonal. Whoever acheives this goal first wins.
+In case of all the squares get occupied without any player winning, it's called a tie or draw.
 
-  2. WHEN ALL 9 SQUARES ARE FULL, THE
-  GAME IS OVER. IF NO PLAYER HAS 3
-  MARKS IN A ROW, THE GAME ENDS IN A TIE.
-  
+After every tie or winning, the game will give option to play again or quit by prompting the player to enter Y or N respectivly
   
 
 ### Screenshots
@@ -36,7 +33,7 @@ or you can play it on your computer by following these steps:
 * Ruby
 * Atom
 * VScode
-* Robocop
+* Rubocop
 
 ###  :bust_in_silhouette: Worked on this challenge:
 ## Rayan Rassam
