@@ -17,8 +17,19 @@ In this project, we built tic tac toe game from scratch using Ruby progamming la
 ### Screenshots
 <img src='./screenshot.png'>
 
-### Play online
+### How to start the game:
+You can either play the game online by clicking on the link below:
+
 Link: [Live Demo Link](https://repl.it/@Rayan84/tic-tac-toe#.replit)
+
+or you can play it on your computer by following these steps:
+
+1. Download the repository from this [link](https://github.com/ahmetbozaci/tic-tac-toe/archive/readme_game_instructions.zip)
+2. Unzip the files
+3. Open the command prompt or terminal and browse to folder containing main.rb file
+4. Type ruby main.rb 
+5. Press enter
+ 
 
 ### :hammer: Built With
 
@@ -39,9 +50,9 @@ Link: [Live Demo Link](https://repl.it/@Rayan84/tic-tac-toe#.replit)
 * Twitter:[@ahmtbozaci](https://twitter.com/ahmtbozaci)
 * LinkedIn:[@ahmtbozaci](https://www.linkedin.com/in/ahmetbozaci/)
 
-## Credits
+### Credits
 The project is part of Microverse Technical curriculum - Ruby section
 
-## Contribution
+### Contribution
 Feedbacks, issues or feature requests are welcomed!
 Please follow this link to create an issue [Link](https://github.com/ahmetbozaci/tic-tac-toe/issues) and help me improve!
