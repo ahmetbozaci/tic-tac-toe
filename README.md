@@ -18,7 +18,7 @@ In this project, we built tic tac toe game from scratch using Ruby progamming la
 <img src='./screenshot.png'>
 
 ### Play online
-Link:[Live Demo Link](https://repl.it/@Rayan84/tic-tac-toe#.replit)
+Link: [Live Demo Link](https://repl.it/@Rayan84/tic-tac-toe#.replit)
 
 ### :hammer: Built With
 
@@ -33,10 +33,6 @@ Link:[Live Demo Link](https://repl.it/@Rayan84/tic-tac-toe#.replit)
 * Twitter:[@Rayan65096267](https://twitter.com/Rayan65096267)
 * LinkedIn:[@rayan rassam](https://www.linkedin.com/in/rayan-rassam-18a0a426/)
 
-## Rayan Rassam
-* Github:[@Rayan84](https://github.com/Rayan84)
-* Twitter:[@Rayan65096267](https://twitter.com/Rayan65096267)
-* LinkedIn:[@rayan rassam](https://www.linkedin.com/in/rayan-rassam-18a0a426/)
 
 ## Ahmet Bozacı
 * Github:[@ahmtbozaci](https://github.com/ahmetbozaci)
