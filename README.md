@@ -40,8 +40,8 @@ Link: [Live Demo Link](https://repl.it/@Rayan84/tic-tac-toe#.replit)
 * LinkedIn:[@ahmtbozaci](https://www.linkedin.com/in/ahmetbozaci/)
 
 ## Credits
-The project is part of Microverse curriculum
+The project is part of Microverse Technical curriculum - Ruby section
 
 ## Contribution
 Feedbacks, issues or feature requests are welcomed!
-Please follow this link to create an issue [Issue](https://github.com/Rayan84/Bubble_sort/issues) and help me improve!
+Please follow this link to create an issue [Link](https://github.com/Rayan84/Bubble_sort/issues) and help me improve!
