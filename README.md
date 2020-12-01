@@ -44,4 +44,4 @@ The project is part of Microverse Technical curriculum - Ruby section
 
 ## Contribution
 Feedbacks, issues or feature requests are welcomed!
-Please follow this link to create an issue [Link](https://github.com/Rayan84/Bubble_sort/issues) and help me improve!
+Please follow this link to create an issue [Link](https://github.com/ahmetbozaci/tic-tac-toe/issues) and help me improve!
