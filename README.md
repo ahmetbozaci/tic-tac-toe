@@ -17,8 +17,8 @@ In this project, we built tic tac toe game from scratch using Ruby progamming la
 ### Screenshots
 <img src='./screenshot.png'>
 
-### Play live
-Link:[](https://repl.it/@Rayan84/tic-tac-toe#.replit)
+### Play online
+Link:[Live Demo Link](https://repl.it/@Rayan84/tic-tac-toe#.replit)
 
 ### :hammer: Built With
 
