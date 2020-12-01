@@ -1,9 +1,7 @@
-# require_relative 'main.rb'
 class Player
-  attr_accessor :name, :mark
-  def initialize
+  attr_reader :name, :mark
+  def initialize(name, mark)
     @name = name
     @mark = mark
   end
-  # change player
 end

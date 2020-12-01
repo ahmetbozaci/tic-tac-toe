@@ -1,13 +1,9 @@
-#!/usr/bin/env ruby
 require_relative '../lib/player.rb'
-require_relative '../lib/operations.rb'
+require_relative '../lib/game.rb'
 
-# Dislay Tic Tac Toe Table
-
-def game_name
-  puts
-  puts
-  puts create_table
+def game_start
+  game = Game.new('player1', 'player2', 'mark1', 'mark2')
+  game.create_table
   puts '
               GAME RULES'
   puts '
@@ -19,83 +15,73 @@ def game_name
   GAME IS OVER. IF NO PLAYER HAS 3
   MARKS IN A ROW, THE GAME ENDS IN A TIE.'
   puts
-  puts
+  sleep(2)
 end
 
-# Ask players name and say their symbol
-def players_name
-  print '  Player one enter your name:  '
-  @player1_name = gets.chomp
-  player_one = Player.new
-  player_one.name = @player1_name
-  user_mark
-  player_one.mark = @marks[0]
-  puts
+@first_name_entered = false
+def check_nam(word)
+  if word.empty?
+    print '  Name can not be blank, please enter a name: '
+    false
+  else
+    word.size.times do |i|
+      unless ('a'..'z').include? word[i].downcase
+        print '  Please enter a proper name: '
+        return false
+      end
+    end
+    if @first_name_entered == true && word.downcase == @first_name.downcase
+      print '  This name is already taken, please enter a different name: '
+      return false
+    else
+      @first_name = word
+    end
+    @first_name_entered = true
+    true
+  end
+end
 
-  print '  Player two enter your name:  '
-  @player2_name = gets.chomp
-  player_two = Player.new
-  player_two.name = @player2_name
-  player_two.mark = @marks[1]
-  puts "  #{@player2_name} mark is #{@marks[1]}"
-  puts
-  sleep(2)
-  puts create_table
-  puts
+def players_name(name)
+  print "  #{name} enter your name:  "
+  nam = ''
+  loop do
+    nam = gets.chomp
+    break if check_nam(nam)
+  end
+  nam
 end
 
 def user_mark
-  player1_mark = 'empty'
+  mark1 = ''
   loop do
-    print '  Please enter either x or o: '
-    player1_mark = gets.chomp
-
-    break if %w[x X o O].include? player1_mark
+    print '  Enter your mark "X" or "O":  '
+    mark1 = gets.chomp.upcase
+    break if %w[X O].include? mark1
   end
-  puts "  #{@player1_name} mark is #{player1_mark}"
-  player2_mark = if %w[x X].include? player1_mark
-                   'O'
-                 else
-                   'X'
-                 end
-  @marks = [player1_mark, player2_mark]
+  mark1
 end
 
-# create table
-def create_table
-  system('cls')
-  system('clear')
-  @table = "
-             TİC TAC TOE GAME
-
-   +-----------------------------+
-   |         |         |         |
-   |    #{@arr[0]}    |    #{@arr[1]}    |    #{@arr[2]}    |
-   |         |         |         |
-   |-----------------------------|
-   |         |         |         |
-   |    #{@arr[3]}    |    #{@arr[4]}    |    #{@arr[5]}    |
-   |         |         |         |
-   |-----------------------------|
-   |         |         |         |
-   |    #{@arr[6]}    |    #{@arr[7]}    |    #{@arr[8]}    |
-   |         |         |         |
-   +-----------------------------+
-
-"
-end
-@game = true
-@win = ''
-def getnumber
-  while @game == true
-    print "  #{@active_player} enter a number: "
-    @active_player_input = gets.chomp
-    check_input(@active_player_input.to_i)
-  end
-  puts '  Game finished....'
+def output(text)
+  puts text
 end
 
-game_name
-players_name
-change_player(@player1_name, @player2_name)
-getnumber
+def printing(text)
+  print text
+end
+
+def ask_player
+  ask = gets.chomp
+  ask
+end
+game_start
+player1 = Player.new(players_name('Player One').capitalize, user_mark)
+mark2 = player1.mark == 'X' ? 'O' : 'X'
+player2 = Player.new(players_name('Player Two').capitalize, mark2)
+system('cls')
+system('clear')
+game = Game.new(player1.name, player2.name, player1.mark, player2.mark)
+
+game.create_table
+
+puts
+game.getnumber
