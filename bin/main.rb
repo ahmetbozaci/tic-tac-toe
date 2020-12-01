@@ -65,7 +65,7 @@ def output(text)
   puts text
 end
 
-def prints(text)
+def printing (text)
   print text
 end
 

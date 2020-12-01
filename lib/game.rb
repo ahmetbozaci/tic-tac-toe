@@ -42,7 +42,7 @@ class Game
 
   def getnumber
     while @game_status == true
-      prints("  #{@active_player} enter a number:  ")
+      printing("  #{@active_player} enter a number:  ")
       player_input = ask_player
       check_input(player_input)
     end
@@ -119,7 +119,7 @@ class Game
   end
 
   def play_again
-    prints '  Would you like to play again?(Y or N): '
+    printing '  Would you like to play again?(Y or N): '
     answer = ask_player
     if %w[y Y yes Yes].include? answer
       @game_status = true
