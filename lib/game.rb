@@ -77,6 +77,7 @@ class Game
                            @mark1
                          end
     change_player(player1, player2)
+    system('cls')
     system('clear')
     create_table
   end
@@ -126,6 +127,7 @@ class Game
       @win = ''
       @number_options = %w[1 2 3 4 5 6 7 8 9]
       @arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+      system('cls')
       system('clear')
       create_table
       getnumber
