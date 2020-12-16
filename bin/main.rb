@@ -25,12 +25,12 @@ def check_nam(word)
     false
   else
     word.size.times do |i|
-      unless ('a'..'z').include? word[i].downcase
+      unless ('a'..'z').cover? word[i].downcase
         print '  Please enter a proper name: '
         return false
       end
     end
-    if @first_name_entered == true && word.downcase == @first_name.downcase
+    if @first_name_entered == true && word.casecmp(@first_name.downcase).zero?
       print '  This name is already taken, please enter a different name: '
       return false
     else
