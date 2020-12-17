@@ -16,4 +16,25 @@ describe Game do
   it 'win check method has to show winline array' do
     expect(game.win_check).to eql(lines)
   end
+
+#these are not working.
+  # it 'create_table' do
+  #   expect(game.create_table).to eql("something")
+  # end
+
+  # it 'number_get' do
+  #   expect(game.number_get).to eql("something")
+  # end
+  # it 'update_table' do
+  #   expect(game.update_table).to eql("something")
+  # end
+  # it 'draw' do
+  #   expect(game.draw_check).to eql("something")
+  # end
+  # it 'play_again' do
+  #   expect(game.play_again).to eql("something")
+  # end
+  # it 'check_input' do
+  #   expect(game.check_input).to eql("something")
+  # end
 end
