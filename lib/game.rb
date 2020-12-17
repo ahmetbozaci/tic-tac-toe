@@ -40,7 +40,7 @@ class Game
     output(@table)
   end
 
-  def getnumber
+  def number_get
     while @game_status == true
       printing("  #{@active_player} enter a number:  ")
       player_input = ask_player
@@ -130,7 +130,7 @@ class Game
       system('cls')
       system('clear')
       create_table
-      getnumber
+      number_get
     elsif %w[n N no No].include? answer
       @game_status = false
       output '  Game Finished!'

@@ -84,4 +84,4 @@ game = Game.new(player1.name, player2.name, player1.mark, player2.mark)
 game.create_table
 
 puts
-game.getnumber
+game.number_get
