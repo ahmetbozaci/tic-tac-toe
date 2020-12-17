@@ -17,4 +17,3 @@ describe Game do
     expect(game.win_check).to eql(lines)
   end
 end
-
